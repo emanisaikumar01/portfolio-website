@@ -1,4 +1,4 @@
-// Scroll Reveal
+/* ===== Scroll Reveal ===== */
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -7,7 +7,6 @@ function revealOnScroll() {
 
   reveals.forEach((section) => {
     const sectionTop = section.getBoundingClientRect().top;
-
     if (sectionTop < windowHeight - revealPoint) {
       section.classList.add("active");
     }
@@ -18,7 +17,7 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 
-// Typing Effect
+/* ===== Typing Effect ===== */
 const typingText = document.getElementById("typing");
 const words = ["Web Developer", "AI Enthusiast", "Full Stack Learner"];
 let wordIndex = 0;
@@ -34,7 +33,7 @@ function typeEffect() {
 
     if (charIndex === currentWord.length) {
       deleting = true;
-      setTimeout(typeEffect, 1000);
+      setTimeout(typeEffect, 900);
       return;
     }
   } else {
@@ -47,30 +46,21 @@ function typeEffect() {
     }
   }
 
-  setTimeout(typeEffect, deleting ? 60 : 90);
+  setTimeout(typeEffect, deleting ? 55 : 85);
 }
 
 typeEffect();
 
 
-// Active Navbar Highlight
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
+/* ===== Mobile Menu ===== */
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
 
-window.addEventListener("scroll", () => {
-  let current = "";
+menuBtn.addEventListener("click", () => {
+  nav.classList.toggle("open");
+});
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 180;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
+/* Close menu on link click */
+document.querySelectorAll("#nav a").forEach((link) => {
+  link.addEventListener("click", () => nav.classList.remove("open"));
 });
