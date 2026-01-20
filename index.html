@@ -10,140 +10,179 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
-    <h1 class="logo">Sai Kumar</h1>
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo">Sai Kumar</a>
 
-    <ul class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open Menu">☰</button>
+
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- HERO -->
-  <section class="hero reveal" id="home">
-    <div class="hero-card floating-card">
-      <img src="assets/profile.png" alt="Sai Kumar" class="profile-img" />
+  <section class="hero" id="home">
+    <div class="container hero-grid reveal">
+      <div class="hero-left">
+        <p class="pill">Web Developer • AI Enthusiast</p>
 
-      <p class="badge">🚀 Web Developer • AI Enthusiast</p>
+        <h1>
+          Hi, I’m <span class="accent">Sai Kumar</span><br />
+          <span class="typing" id="typing"></span>
+        </h1>
 
-      <h2>
-        Hi, I'm <span class="name">Sai Kumar</span><br />
-        <span id="typing"></span>
-      </h2>
+        <p class="subtitle">
+          I build clean and responsive websites using HTML, CSS, JavaScript and Python.
+          I enjoy solving real-world problems and creating modern UI.
+        </p>
 
-      <p class="hero-text">
-        I build clean, scalable and modern web experiences using HTML, CSS, JavaScript and Python.
-        I enjoy building responsive UIs and solving real-world problems.
-      </p>
+        <div class="btns">
+          <a href="Assets/resume.pdf" download class="btn primary">Download Resume</a>
+          <a href="https://github.com/emanisaikumar01" target="_blank" class="btn secondary">GitHub</a>
+        </div>
+      </div>
 
-      <div class="buttons">
-        <a href="assets/resume.pdf" class="btn" download>Download Resume</a>
-        <a href="https://github.com/emanisaikumar01" target="_blank" class="btn secondary">GitHub</a>
+      <div class="hero-right">
+        <div class="profile-card">
+          <img src="Assets/profile.png" alt="Sai Kumar" />
+          <div class="profile-info">
+            <h3>Sai Kumar</h3>
+            <p>Frontend Developer</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="section reveal">
-    <h2 class="title">About Me</h2>
-
-    <div class="glass-box floating-card">
-      <p>
-        Hi, I’m Sai Kumar — a BTech student passionate about Full Stack Web Development,
-        problem solving and building real-world applications. I focus on clean code,
-        modern UI/UX and learning new technologies to grow as a developer.
-      </p>
+  <section class="section" id="about">
+    <div class="container reveal">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p>
+          I’m Sai Kumar, a BTech student passionate about web development and building real-world projects.
+          I focus on clean code, simple UI, and improving my skills every day.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- EDUCATION -->
-  <section id="education" class="section reveal">
-    <h2 class="title">Education</h2>
+  <section class="section alt" id="education">
+    <div class="container reveal">
+      <h2 class="section-title">Education</h2>
 
-    <div class="grid-2">
-      <div class="glass-box floating-card">
-        <h3>B.Tech (Computer Science)</h3>
-        <p>ICFAI University, Hyderabad</p>
-        <span class="small-text">2024 – 2028</span>
-      </div>
+      <div class="grid">
+        <div class="card hover">
+          <h3>B.Tech (CSE)</h3>
+          <p class="muted">ICFAI University, Hyderabad</p>
+          <span class="small">2024 – 2028</span>
+        </div>
 
-      <div class="glass-box floating-card">
-        <h3>Intermediate</h3>
-        <p>Board of Intermediate Education</p>
-        <span class="small-text">2022 – 2024</span>
+        <div class="card hover">
+          <h3>Intermediate</h3>
+          <p class="muted">Board of Intermediate Education</p>
+          <span class="small">2022 – 2024</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section reveal">
-    <h2 class="title">Skills</h2>
+  <section class="section" id="skills">
+    <div class="container reveal">
+      <h2 class="section-title">Skills</h2>
 
-    <div class="skills-grid">
-      <div class="skill-card floating-card">HTML</div>
-      <div class="skill-card floating-card">CSS</div>
-      <div class="skill-card floating-card">JavaScript</div>
-      <div class="skill-card floating-card">Python</div>
-      <div class="skill-card floating-card">React</div>
-      <div class="skill-card floating-card">MySQL</div>
-      <div class="skill-card floating-card">Git & GitHub</div>
-      <div class="skill-card floating-card">Problem Solving</div>
+      <div class="chips">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">Python</span>
+        <span class="chip">React</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Git & GitHub</span>
+      </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section reveal">
-    <h2 class="title">Projects</h2>
+  <section class="section alt" id="projects">
+    <div class="container reveal">
+      <h2 class="section-title">Projects</h2>
 
-    <div class="projects-grid">
-      <div class="project-card floating-card">
-        <h3>Portfolio Website</h3>
-        <p>A modern responsive portfolio built with HTML, CSS and JavaScript.</p>
+      <div class="grid">
+        <div class="card hover">
+          <h3>Portfolio Website</h3>
+          <p class="muted">Responsive portfolio using HTML, CSS and JavaScript.</p>
 
-        <div class="tags">
-          <span>HTML</span><span>CSS</span><span>JS</span>
+          <div class="tags">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+
+          <div class="links">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">Live</a>
+          </div>
         </div>
 
-        <div class="project-links">
-          <a href="#" class="btn small">GitHub</a>
-          <a href="#" class="btn small secondary">Live</a>
-        </div>
-      </div>
+        <div class="card hover">
+          <h3>AI Resume Analyzer</h3>
+          <p class="muted">Smart resume feedback system using Python + NLP.</p>
 
-      <div class="project-card floating-card">
-        <h3>AI Resume Analyzer</h3>
-        <p>An AI-based resume screening tool that gives smart feedback.</p>
+          <div class="tags">
+            <span>Python</span><span>NLP</span><span>ML</span>
+          </div>
 
-        <div class="tags">
-          <span>Python</span><span>NLP</span><span>ML</span>
-        </div>
-
-        <div class="project-links">
-          <a href="#" class="btn small">GitHub</a>
-          <a href="#" class="btn small secondary">Live</a>
+          <div class="links">
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">Live</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section reveal">
-    <h2 class="title">Contact</h2>
+  <section class="section" id="contact">
+    <div class="container reveal">
+      <h2 class="section-title">Contact</h2>
 
-    <div class="glass-box floating-card contact-box">
-      <p><b>Email:</b> <a href="mailto:emanisaikumar01@gmail.com">emanisaikumar01@gmail.com</a></p>
-      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/emani-sai-kumar/" target="_blank">View Profile</a></p>
-      <p><b>GitHub:</b> <a href="https://github.com/emanisaikumar01" target="_blank">github.com/emanisaikumar01</a></p>
+      <div class="grid">
+        <div class="card hover">
+          <h3>Email</h3>
+          <p class="muted">
+            <a href="mailto:emanisaikumar01@gmail.com">emanisaikumar01@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="card hover">
+          <h3>LinkedIn</h3>
+          <p class="muted">
+            <a href="https://www.linkedin.com/in/emani-sai-kumar/" target="_blank">View Profile</a>
+          </p>
+        </div>
+
+        <div class="card hover">
+          <h3>GitHub</h3>
+          <p class="muted">
+            <a href="https://github.com/emanisaikumar01" target="_blank">github.com/emanisaikumar01</a>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Sai Kumar. All rights reserved.</p>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Sai Kumar • Built with HTML, CSS & JS</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
