@@ -1,66 +1,462 @@
-/* ===== Scroll Reveal ===== */
-const reveals = document.querySelectorAll(".reveal");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-function revealOnScroll() {
-  const windowHeight = window.innerHeight;
-  const revealPoint = 120;
+:root{
+  --text: #e5e7eb;
+  --muted: rgba(229,231,235,0.75);
+  --border: rgba(255,255,255,0.14);
+  --accent: #38bdf8;
 
-  reveals.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < windowHeight - revealPoint) {
-      section.classList.add("active");
-    }
-  });
+  --shadow: 0 18px 50px rgba(0,0,0,0.35);
+  --radius: 18px;
+
+  /* used for scroll hue rotate */
+  --hue-rotate: 0deg;
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
 
+html{
+  scroll-behavior: smooth;
+}
 
-/* ===== Typing Effect ===== */
-const typingText = document.getElementById("typing");
-const words = ["Web Developer", "AI Enthusiast", "Full Stack Learner"];
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
+body{
+  color: var(--text);
+  background: #050816;
+  overflow-x: hidden;
+  position: relative;
+}
 
-function typeEffect() {
-  const currentWord = words[wordIndex];
+/* ===== Neon Glass Background (Fixed Layer) ===== */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
 
-  if (!deleting) {
-    typingText.textContent = currentWord.substring(0, charIndex + 1);
-    charIndex++;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(56,189,248,0.35), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(168,85,247,0.35), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(34,211,238,0.25), transparent 50%),
+    linear-gradient(180deg, #050816, #0b1020);
 
-    if (charIndex === currentWord.length) {
-      deleting = true;
-      setTimeout(typeEffect, 900);
-      return;
-    }
-  } else {
-    typingText.textContent = currentWord.substring(0, charIndex - 1);
-    charIndex--;
+  filter: blur(30px) hue-rotate(var(--hue-rotate));
+  transform: scale(1.12);
+  animation: bgMove 12s ease-in-out infinite alternate;
+}
 
-    if (charIndex === 0) {
-      deleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-    }
+/* ===== Soft Glass Overlay ===== */
+body::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Smooth subtle background movement */
+@keyframes bgMove{
+  0%{ transform: scale(1.12) translate(0px, 0px); }
+  100%{ transform: scale(1.12) translate(30px, -30px); }
+}
+
+/* Layout */
+.container{
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Navbar */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(10, 10, 20, 0.55);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.nav-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo{
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 18px;
+  letter-spacing: -0.2px;
+}
+
+.nav{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav a{
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.nav a:hover{
+  background: rgba(56,189,248,0.12);
+  color: var(--accent);
+}
+
+.nav-btn{
+  background: rgba(56,189,248,0.18);
+  border: 1px solid rgba(56,189,248,0.35);
+  color: var(--accent) !important;
+}
+
+.nav-btn:hover{
+  background: rgba(56,189,248,0.25);
+}
+
+/* Mobile Menu Button */
+.menu-btn{
+  display: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero{
+  padding: 60px 0 30px;
+}
+
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.pill{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  font-size: 13px;
+  color: var(--muted);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.hero h1{
+  margin-top: 14px;
+  font-size: 42px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.accent{
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(56,189,248,0.35);
+}
+
+.subtitle{
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 650px;
+}
+
+.typing{
+  border-right: 2px solid var(--accent);
+  padding-right: 6px;
+}
+
+/* Buttons */
+.btns{
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.btn.primary{
+  background: rgba(56,189,248,0.16);
+  color: #eaf6ff;
+  border: 1px solid rgba(56,189,248,0.30);
+}
+
+.btn.primary:hover{
+  background: rgba(56,189,248,0.24);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45),
+              0 0 18px rgba(56,189,248,0.18);
+}
+
+.btn.secondary{
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
+
+.btn.secondary:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+/* Profile Card */
+.profile-card{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(18px);
+}
+
+.profile-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45),
+              0 0 22px rgba(56,189,248,0.12);
+  border-color: rgba(56,189,248,0.25);
+}
+
+.profile-card img{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.profile-info{
+  margin-top: 12px;
+}
+
+.profile-info h3{
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.profile-info p{
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Sections */
+.section{
+  padding: 60px 0;
+}
+
+.section.alt{
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.section-title{
+  font-size: 26px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+  text-shadow: 0 0 14px rgba(56,189,248,0.08);
+}
+
+/* Cards */
+.card{
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.28);
+  backdrop-filter: blur(18px);
+}
+
+.card.hover{
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card.hover:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45),
+              0 0 22px rgba(56,189,248,0.12);
+  border-color: rgba(56,189,248,0.25);
+}
+
+.muted{
+  color: var(--muted);
+}
+
+.small{
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Grid */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* Skills Chips */
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: 0.2s ease;
+  color: var(--text);
+}
+
+.chip:hover{
+  transform: translateY(-2px);
+  background: rgba(56,189,248,0.10);
+  border-color: rgba(56,189,248,0.25);
+}
+
+/* Tags */
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tags span{
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+/* Links */
+.links{
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+/* FIX: No more blue/purple visited links */
+a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--accent);
+}
+
+a:hover{
+  text-decoration: underline;
+  color: #7dd3fc;
+}
+
+/* Footer */
+.footer{
+  padding: 20px 0;
+  background: rgba(10, 10, 20, 0.55);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(14px);
+}
+
+.footer p{
+  text-align: center;
+  color: rgba(229,231,235,0.65);
+  font-size: 13px;
+}
+
+/* Reveal Animation */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Small premium selection color */
+::selection{
+  background: rgba(56,189,248,0.25);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px){
+  .menu-btn{
+    display: inline-block;
   }
 
-  setTimeout(typeEffect, deleting ? 55 : 85);
+  .nav{
+    display: none;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 60px;
+    background: rgba(10, 10, 20, 0.75);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 12px;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+  }
+
+  .nav.open{
+    display: flex;
+  }
 }
-
-typeEffect();
-
-
-/* ===== Mobile Menu ===== */
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-
-menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("open");
-});
-
-/* Close menu on link click */
-document.querySelectorAll("#nav a").forEach((link) => {
-  link.addEventListener("click", () => nav.classList.remove("open"));
-});
