@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
 
-/* =======================
+/* =====================
    THEME VARIABLES
-======================= */
+===================== */
 :root{
   --bg-main: #0B0E14;
   --bg-alt: #05070D;
 
-  --card-bg: rgba(255,255,255,0.06);
+  --card-bg: rgba(255,255,255,0.05);
   --border: rgba(255,255,255,0.12);
 
   --text-main: #F1F5F9;
@@ -17,12 +17,12 @@
   --accent-cyan: #22D3EE;
 
   --radius: 16px;
-  --shadow: 0 20px 50px rgba(0,0,0,0.4);
+  --shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
-/* =======================
-   GLOBAL RESET
-======================= */
+/* =====================
+   RESET
+===================== */
 *{
   margin: 0;
   padding: 0;
@@ -36,24 +36,25 @@ html{
 body{
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(124,124,255,0.15), transparent 60%),
+    radial-gradient(circle at 20% 20%, rgba(124,124,255,0.14), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(34,211,238,0.12), transparent 45%),
     linear-gradient(180deg, var(--bg-main), var(--bg-alt));
   color: var(--text-main);
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
 
-/* =======================
+/* =====================
    TYPOGRAPHY
-======================= */
-h1,h2,h3,h4,.logo{
+===================== */
+h1, h2, h3, .logo{
   font-family: "Space Grotesk", sans-serif;
   letter-spacing: -0.6px;
 }
 
 h1{
-  font-size: 42px;
-  line-height: 1.15;
+  font-size: 48px;
+  line-height: 1.1;
 }
 
 h2{
@@ -61,17 +62,17 @@ h2{
 }
 
 p{
-  color: var(--text-muted);
   line-height: 1.7;
+  color: var(--text-muted);
 }
 
 .accent{
   color: var(--accent);
 }
 
-/* =======================
+/* =====================
    LAYOUT
-======================= */
+===================== */
 .container{
   width: 90%;
   max-width: 1100px;
@@ -82,22 +83,32 @@ p{
   padding: 70px 0;
 }
 
-/* =======================
+.section.alt{
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title{
+  margin-bottom: 18px;
+}
+
+/* =====================
    NAVBAR
-======================= */
+===================== */
 .navbar{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(10,10,20,0.6);
+  background: rgba(10,10,20,0.65);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-wrap{
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 14px 0;
 }
 
@@ -116,7 +127,7 @@ p{
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #CBD5F5;
   padding: 8px 12px;
   border-radius: 10px;
   transition: 0.2s ease;
@@ -127,17 +138,34 @@ p{
   color: var(--accent);
 }
 
-/* =======================
+.nav-btn{
+  border: 1px solid var(--border);
+}
+
+/* =====================
+   MOBILE MENU
+===================== */
+.menu-btn{
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =====================
    HERO
-======================= */
+===================== */
 .hero{
-  padding-top: 80px;
+  padding-top: 90px;
 }
 
 .hero-grid{
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 24px;
+  gap: 28px;
   align-items: center;
 }
 
@@ -151,9 +179,15 @@ p{
   color: var(--text-muted);
 }
 
-/* =======================
+.subtitle{
+  max-width: 520px;
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+/* =====================
    BUTTONS
-======================= */
+===================== */
 .btns{
   margin-top: 20px;
   display: flex;
@@ -163,14 +197,14 @@ p{
 .btn{
   text-decoration: none;
   font-weight: 700;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 12px;
   transition: all 0.2s ease;
 }
 
 .btn.primary{
   background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
-  color: #0B0E14;
+  color: #05070D;
 }
 
 .btn.primary:hover{
@@ -179,38 +213,37 @@ p{
 }
 
 .btn.secondary{
-  background: var(--card-bg);
-  color: var(--text-main);
+  background: transparent;
   border: 1px solid var(--border);
+  color: var(--text-main);
 }
 
 .btn.secondary:hover{
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
 }
 
-/* =======================
+/* =====================
    CARDS
-======================= */
+===================== */
 .card,
 .profile-card{
   background: var(--card-bg);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: var(--radius);
   padding: 18px;
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-.card:hover,
+.card.hover:hover,
 .profile-card:hover{
   transform: translateY(-4px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 }
 
-/* =======================
+/* =====================
    PROFILE CARD
-======================= */
+===================== */
 .profile-card{
   text-align: center;
 }
@@ -223,18 +256,22 @@ p{
   border: 1px solid var(--border);
 }
 
-/* =======================
+.profile-info{
+  margin-top: 12px;
+}
+
+/* =====================
    GRID
-======================= */
+===================== */
 .grid{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-/* =======================
-   SKILLS / TAGS
-======================= */
+/* =====================
+   SKILLS
+===================== */
 .chips{
   display: flex;
   flex-wrap: wrap;
@@ -250,10 +287,14 @@ p{
   font-weight: 600;
 }
 
+/* =====================
+   TAGS & LINKS
+===================== */
 .tags{
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-top: 12px;
 }
 
 .tags span{
@@ -264,9 +305,21 @@ p{
   color: var(--text-muted);
 }
 
-/* =======================
+.links{
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+}
+
+.links a{
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =====================
    FOOTER
-======================= */
+===================== */
 .footer{
   padding: 24px 0;
   border-top: 1px solid var(--border);
@@ -280,9 +333,9 @@ p{
   color: var(--text-muted);
 }
 
-/* =======================
-   ANIMATIONS
-======================= */
+/* =====================
+   REVEAL ANIMATION
+===================== */
 .reveal{
   opacity: 0;
   transform: translateY(20px);
@@ -294,14 +347,41 @@ p{
   transform: translateY(0);
 }
 
-/* =======================
+/* =====================
    RESPONSIVE
-======================= */
+===================== */
 @media(max-width: 900px){
+
+  h1{
+    font-size: 38px;
+  }
+
   .hero-grid{
     grid-template-columns: 1fr;
   }
+
   .grid{
     grid-template-columns: 1fr;
+  }
+
+  .menu-btn{
+    display: block;
+  }
+
+  .nav{
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    flex-direction: column;
+  }
+
+  .nav.open{
+    display: flex;
   }
 }
