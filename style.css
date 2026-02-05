@@ -4,16 +4,18 @@
    THEME VARIABLES
 ========================= */
 :root{
-  --bg-main: #ffffff;
-  --bg-alt: #f6f7f9;
+  --bg-main: #ffffff;        /* main white */
+  --bg-alt: #f7f9fc;         /* soft section background */
+  --bg-soft: #f1f5f9;        /* chips / tags */
 
-  --text-main: #2e2e2e;
+  --text-main: #1f2933;      /* charcoal */
   --text-muted: #6b7280;
 
-  --accent: #4A90E2;
+  --accent: #2563eb;         /* professional blue */
   --border: #e5e7eb;
 
-  --radius: 10px;
+  --radius: 12px;
+  --shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
 /* =========================
@@ -33,7 +35,7 @@ body{
   background: var(--bg-main);
   color: var(--text-main);
   font-family: "Inter", sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* =========================
@@ -42,6 +44,7 @@ body{
 h1, h2, h3{
   font-weight: 700;
   letter-spacing: -0.4px;
+  color: var(--text-main);
 }
 
 h1{
@@ -49,7 +52,7 @@ h1{
 }
 
 h2{
-  font-size: 28px;
+  font-size: 30px;
 }
 
 h3{
@@ -82,7 +85,7 @@ p{
 }
 
 .section-title{
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* =========================
@@ -107,6 +110,7 @@ p{
   text-decoration: none;
   color: var(--text-main);
   font-weight: 700;
+  font-size: 16px;
 }
 
 .nav{
@@ -161,7 +165,7 @@ p{
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: #eef4ff;
+  background: #eef2ff;
   color: var(--accent);
   font-weight: 600;
 }
@@ -195,7 +199,7 @@ p{
 }
 
 .btn.secondary{
-  background: transparent;
+  background: #ffffff;
   color: var(--text-main);
 }
 
@@ -211,7 +215,8 @@ p{
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow);
 }
 
 .card.hover:hover{
@@ -229,7 +234,7 @@ p{
   width: 140px;
   height: 140px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 12px;
 }
 
@@ -255,8 +260,9 @@ p{
   padding: 8px 14px;
   font-size: 13px;
   border-radius: 999px;
-  background: #f1f5f9;
+  background: var(--bg-soft);
   font-weight: 600;
+  color: var(--text-main);
 }
 
 /* =========================
@@ -272,7 +278,7 @@ p{
 .tags span{
   font-size: 12px;
   padding: 6px 10px;
-  background: #f1f5f9;
+  background: var(--bg-soft);
   border-radius: 999px;
 }
 
@@ -294,6 +300,7 @@ p{
 .footer{
   border-top: 1px solid var(--border);
   padding: 24px 0;
+  background: var(--bg-alt);
 }
 
 .footer p{
