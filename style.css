@@ -4,16 +4,20 @@
    THEME VARIABLES
 ========================= */
 :root{
-  --bg-main: #f4f6f9;     /* light gray instead of pure white */
-  --bg-alt: #ffffff;
-  --bg-soft: #e5e7eb;
+  --bg-main: #0b0f19;      /* main dark */
+  --bg-alt: #111827;      /* section background */
+  --bg-soft: #1f2937;     /* chips / tags */
 
-  --text-main: #111827;
-  --text-muted: #4b5563;
+  --text-main: #e5e7eb;   /* light text */
+  --text-muted: #9ca3af;
 
-  --accent: #2563eb;
-  --border: #d1d5db;
+  --accent: #38bdf8;      /* cyber blue */
+  --border: #1f2937;
+
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
+
 
 /* =========================
    RESET
@@ -352,4 +356,5 @@ p{
     display: flex;
   }
 }
+
 
