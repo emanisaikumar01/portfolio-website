@@ -1,23 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* =========================
-   THEME VARIABLES
+   THEME VARIABLES (WHITE + BLUE)
 ========================= */
 :root{
-  --bg-main: #0b0f19;      /* main dark */
-  --bg-alt: #111827;      /* section background */
-  --bg-soft: #1f2937;     /* chips / tags */
+  --bg-main: #f4f6f9;        /* page background */
+  --bg-alt: #ffffff;        /* cards / sections */
+  --bg-soft: #e5e7eb;       /* chips / tags */
 
-  --text-main: #e5e7eb;   /* light text */
-  --text-muted: #9ca3af;
+  --text-main: #1f2933;     /* dark charcoal */
+  --text-muted: #4b5563;
 
-  --accent: #38bdf8;      /* cyber blue */
-  --border: #1f2937;
+  --accent: #2563eb;        /* professional blue */
+  --border: #d1d5db;
 
   --radius: 12px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.4);
+  --shadow: 0 10px 25px rgba(0,0,0,0.06);
 }
-
 
 /* =========================
    RESET
@@ -48,25 +47,13 @@ h1, h2, h3{
   color: var(--text-main);
 }
 
-h1{
-  font-size: 44px;
-}
+h1{ font-size: 44px; }
+h2{ font-size: 30px; }
+h3{ font-size: 18px; }
 
-h2{
-  font-size: 30px;
-}
+p{ color: var(--text-muted); }
 
-h3{
-  font-size: 18px;
-}
-
-p{
-  color: var(--text-muted);
-}
-
-.accent{
-  color: var(--accent);
-}
+.accent{ color: var(--accent); }
 
 /* =========================
    LAYOUT
@@ -126,9 +113,7 @@ p{
   font-size: 14px;
 }
 
-.nav a:hover{
-  color: var(--accent);
-}
+.nav a:hover{ color: var(--accent); }
 
 .nav-btn{
   color: var(--accent);
@@ -140,7 +125,7 @@ p{
 ========================= */
 .menu-btn{
   display: none;
-  background: none;
+  background: #ffffff;
   border: 1px solid var(--border);
   padding: 6px 10px;
   border-radius: 6px;
@@ -166,7 +151,7 @@ p{
   font-size: 13px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: #eef2ff;
+  background: #e0e7ff;
   color: var(--accent);
   font-weight: 600;
 }
@@ -204,9 +189,7 @@ p{
   color: var(--text-main);
 }
 
-.btn:hover{
-  opacity: 0.9;
-}
+.btn:hover{ opacity: 0.9; }
 
 /* =========================
    CARDS
@@ -301,7 +284,7 @@ p{
 .footer{
   border-top: 1px solid var(--border);
   padding: 24px 0;
-  background: var(--bg-alt);
+  background: #ffffff;
 }
 
 .footer p{
@@ -356,5 +339,3 @@ p{
     display: flex;
   }
 }
-
-
