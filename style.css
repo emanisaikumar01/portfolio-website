@@ -303,12 +303,13 @@ p{
    REVEAL ANIMATION
 ================================================== */
 .reveal{
-   opacity: 0;
-  transition: opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 .reveal.active{
   opacity: 1;
+  transform: translateY(0);
 }
 
 /* ==================================================
@@ -343,4 +344,5 @@ p{
     display: flex;
   }
 }
+
 
