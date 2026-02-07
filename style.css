@@ -1,26 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-/* ==================================================
-   THEME VARIABLES — WHITE + BLUE (VISIBLE & CLEAN)
-================================================== */
-:root{
-  --bg-main: #f4f8ff;        /* light blue page background */
-  --bg-alt: #ffffff;        /* white sections / cards */
-  --bg-soft: #e0e7ff;       /* chips, pills */
 
+:root{
+  --bg-main: #f4f8ff;      
+  --bg-alt: #ffffff;       
+  --bg-soft: #e0e7ff;      
   --text-main: #1f2933;     
   --text-muted: #4b5563;
 
-  --accent: #2563eb;        /* primary blue */
+  --accent: #2563eb;       
   --border: #c7d2fe;
 
   --radius: 14px;
   --shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 
-/* ==================================================
-   RESET
-================================================== */
 *{
   margin: 0;
   padding: 0;
@@ -37,16 +31,11 @@ body{
   font-family: "Inter", sans-serif;
   line-height: 1.7;
 }
-
-/* ==================================================
-   TYPOGRAPHY
-================================================== */
 h1, h2, h3{
   font-weight: 700;
   letter-spacing: -0.4px;
   color: var(--text-main);
 }
-
 h1{ font-size: 46px; }
 h2{ font-size: 30px; }
 h3{ font-size: 18px; }
@@ -59,10 +48,6 @@ p{
 .accent{
   color: var(--accent);
 }
-
-/* ==================================================
-   LAYOUT
-================================================== */
 .container{
   width: 90%;
   max-width: 1100px;
@@ -82,10 +67,6 @@ p{
   padding-left: 14px;
   border-left: 4px solid var(--accent);
 }
-
-/* ==================================================
-   NAVBAR
-================================================== */
 .navbar{
   position: sticky;
   top: 0;
@@ -93,7 +74,6 @@ p{
   border-bottom: 1px solid var(--border);
   z-index: 1000;
 }
-
 .nav-wrap{
   display: flex;
   justify-content: space-between;
@@ -107,12 +87,10 @@ p{
   color: var(--text-main);
   text-decoration: none;
 }
-
 .nav{
   display: flex;
   gap: 24px;
 }
-
 .nav a{
   text-decoration: none;
   font-size: 14px;
@@ -132,21 +110,15 @@ p{
   border-radius: 8px;
   cursor: pointer;
 }
-
-/* ==================================================
-   HERO
-================================================== */
 .hero{
   padding-top: 120px;
 }
-
 .hero-grid{
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 48px;
   align-items: center;
 }
-
 .pill{
   display: inline-block;
   padding: 6px 14px;
@@ -156,14 +128,9 @@ p{
   color: var(--accent);
   font-weight: 600;
 }
-
 .subtitle{
   margin-top: 16px;
 }
-
-/* ==================================================
-   BUTTONS
-================================================== */
 .btns{
   margin-top: 28px;
   display: flex;
@@ -193,10 +160,6 @@ p{
 .btn:hover{
   opacity: 0.9;
 }
-
-/* ==================================================
-   CARDS
-================================================== */
 .card,
 .profile-card{
   background: var(--bg-alt);
@@ -213,9 +176,6 @@ p{
   box-shadow: 0 20px 40px rgba(37,99,235,0.12);
 }
 
-/* ==================================================
-   PROFILE CARD
-================================================== */
 .profile-card{
   text-align: center;
 }
@@ -228,24 +188,16 @@ p{
   margin-bottom: 14px;
 }
 
-/* ==================================================
-   GRID
-================================================== */
 .grid{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
-
-/* ==================================================
-   SKILLS / CHIPS
-================================================== */
 .chips{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .chip{
   background: var(--bg-soft);
   padding: 8px 14px;
@@ -254,17 +206,12 @@ p{
   border-radius: 999px;
   color: var(--text-main);
 }
-
-/* ==================================================
-   TAGS & LINKS
-================================================== */
 .tags{
   margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-
 .tags span{
   background: var(--bg-soft);
   padding: 6px 12px;
@@ -283,10 +230,6 @@ p{
   font-weight: 600;
   text-decoration: none;
 }
-
-/* ==================================================
-   FOOTER
-================================================== */
 .footer{
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
@@ -298,10 +241,6 @@ p{
   font-size: 13px;
   color: var(--text-muted);
 }
-
-/* ==================================================
-   REVEAL ANIMATION
-================================================== */
 .reveal{
   opacity: 0;
   transform: translateY(6px);
@@ -311,10 +250,6 @@ p{
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ==================================================
-   RESPONSIVE
-================================================== */
 @media(max-width: 900px){
   .hero-grid{
     grid-template-columns: 1fr;
@@ -344,6 +279,7 @@ p{
     display: flex;
   }
 }
+
 
 
 
