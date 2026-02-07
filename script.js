@@ -1,4 +1,4 @@
-/* ===== Scroll Reveal ===== */
+
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -17,7 +17,6 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 
-/* ===== Typing Effect ===== */
 const typingText = document.getElementById("typing");
 const words = ["Web Developer", "AI Enthusiast", "Full Stack Learner"];
 let wordIndex = 0;
@@ -52,7 +51,6 @@ function typeEffect() {
 typeEffect();
 
 
-/* ===== Mobile Menu ===== */
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 
@@ -60,7 +58,8 @@ menuBtn.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-/* Close menu on link click */
+
 document.querySelectorAll("#nav a").forEach((link) => {
   link.addEventListener("click", () => nav.classList.remove("open"));
 });
+
