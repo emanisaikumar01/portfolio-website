@@ -11,6 +11,17 @@
   --radius:14px;
   --shadow:0 12px 28px rgba(0,0,0,0.06);
 }
+.profile-card{
+  text-align:center;
+}
+
+.profile-card img{
+  width:140px;
+  height:140px;
+  border-radius:12px;
+  object-fit:cover;
+  margin-bottom:14px;
+}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
