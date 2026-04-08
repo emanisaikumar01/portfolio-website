@@ -1,5 +1,6 @@
-
+// SCROLL REVEAL
 const reveals = document.querySelectorAll(".reveal");
+const expCards = document.querySelectorAll(".exp-card");
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
@@ -11,14 +12,24 @@ function revealOnScroll() {
       section.classList.add("active");
     }
   });
+
+  // 🔥 EXPERIENCE ANIMATION
+  expCards.forEach((card) => {
+    const top = card.getBoundingClientRect().top;
+    if (top < windowHeight - revealPoint) {
+      card.classList.add("show");
+    }
+  });
 }
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 
+// TYPING EFFECT
 const typingText = document.getElementById("typing");
 const words = ["Web Developer", "AI Enthusiast", "Full Stack Learner"];
+
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
@@ -51,6 +62,7 @@ function typeEffect() {
 typeEffect();
 
 
+// MOBILE MENU
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 
@@ -58,8 +70,6 @@ menuBtn.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
 
-
 document.querySelectorAll("#nav a").forEach((link) => {
   link.addEventListener("click", () => nav.classList.remove("open"));
 });
-
