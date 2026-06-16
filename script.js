@@ -8,14 +8,15 @@ function revealOnScroll() {
 
   reveals.forEach((section) => {
     const sectionTop = section.getBoundingClientRect().top;
+
     if (sectionTop < windowHeight - revealPoint) {
       section.classList.add("active");
     }
   });
 
-  // 🔥 EXPERIENCE ANIMATION
   expCards.forEach((card) => {
     const top = card.getBoundingClientRect().top;
+
     if (top < windowHeight - revealPoint) {
       card.classList.add("show");
     }
@@ -28,26 +29,39 @@ revealOnScroll();
 
 // TYPING EFFECT
 const typingText = document.getElementById("typing");
-const words = ["Web Developer", "AI Enthusiast", "Full Stack Learner"];
+
+const words = [
+  "Web Developer",
+  "AI Enthusiast",
+  "Full Stack Learner"
+];
 
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
 function typeEffect() {
+
   const currentWord = words[wordIndex];
 
   if (!deleting) {
-    typingText.textContent = currentWord.substring(0, charIndex + 1);
+
+    typingText.textContent =
+      currentWord.substring(0, charIndex + 1);
+
     charIndex++;
 
     if (charIndex === currentWord.length) {
       deleting = true;
-      setTimeout(typeEffect, 900);
+      setTimeout(typeEffect, 1000);
       return;
     }
+
   } else {
-    typingText.textContent = currentWord.substring(0, charIndex - 1);
+
+    typingText.textContent =
+      currentWord.substring(0, charIndex - 1);
+
     charIndex--;
 
     if (charIndex === 0) {
@@ -56,7 +70,7 @@ function typeEffect() {
     }
   }
 
-  setTimeout(typeEffect, deleting ? 55 : 85);
+  setTimeout(typeEffect, deleting ? 60 : 100);
 }
 
 typeEffect();
@@ -71,5 +85,28 @@ menuBtn.addEventListener("click", () => {
 });
 
 document.querySelectorAll("#nav a").forEach((link) => {
-  link.addEventListener("click", () => nav.classList.remove("open"));
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+  });
+});
+
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+  anchor.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    const target = document.querySelector(
+      this.getAttribute("href")
+    );
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+
 });
